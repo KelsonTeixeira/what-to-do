@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>What To Do</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <div class="app">
+
+      <img src="./img/plus.svg" alt="add" id="open-add-form">
+
+      <img src="./img/trash.svg" alt="add" id="delete-all">
+
+      <div class="to-do">
+        <h1>To Do</h1>
+        <div class="tasks" id="todo"></div>
+      </div>
+
+      <div class="done">
+        <h1>Done</h1>
+        <div class="tasks" id="done"></div>
+      </div>
+
+      <div class="forms" id="add-div">
+        <form class="form-add">
+          <div class="out" id="add-out"></div>
+          <input type="text" name="add-title" id="add-title" placeholder="Task" required>
+          <button type="submit">ADD</button>
+        </form>
+      </div>
+
+      <div class="forms" id="update-div">
+        <form class="form-update">
+          <div class="out" id="update-out"></div>
+          <input type="hidden" name="id" id="id-update">
+          <input type="text" name="update-title" id="update-title" required>
+          <button type="submit">UPDATE</button>
+        </form>
+      </div>
+
+    </div>
+  </body>
+  <script src='./code/app.js'></script>
+  <script src="./code/interection.js"></script>
+</html>
