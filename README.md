@@ -1,13 +1,17 @@
 # what-to-do
 
-<img src="https://raw.githubusercontent.com/KelsonTeixeira/what-to-do/master/src/img/what-to-do.jpg" />
+A task app created with Electron JS. I developed this app to help with my daily tasks.
 
-# To use the app:
+![app print](https://raw.githubusercontent.com/KelsonTeixeira/what-to-do/master/src/img/what-to-do.jpg)
 
-1- $ git clone https://github.com/KelsonTeixeira/what-to-do.git
+## To run the app on your pc:
 
-2- $ yarn or npm
+###### $ git clone https://github.com/KelsonTeixeira/what-to-do.git
 
-3- $ yarn start
+###### $ cd what-to-do
 
-4- if step 3 gets an error: $ sudo yarn postinstall
+###### $ yarn or npm
+
+###### $ yarn start
+
+###### if the previous step gets an error use: $ sudo yarn postinstall
