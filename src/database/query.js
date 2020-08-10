@@ -1,11 +1,35 @@
 module.exports = {
-  createTable (path) {
+
+  createTableLists(path){
+    const sqlite = require('sqlite3').verbose();
+    const db = new sqlite.Database(path);
+    let sql = 'CREATE TABLE IF NOT EXISTS List(\
+      idList INTEGER PRIMARY KEY AUTOINCREMENT,\
+      Title VARCHAR(250) NOT NULL)';
+      db.run(sql, [], (err) => {
+        if(err) console.log(err);
+      })
+  },
+
+  selectLists (path) {  
+    const sqlite = require('sqlite3').verbose();
+    const db = new sqlite.Database(path);
+    return new Promise ((resolve, reject) => {
+      db.all("SELECT * FROM List",[], (err, rows) => {
+        return err ? resolve(err) : resolve(rows);
+      }); 
+    }); 
+  },
+
+  createTableTasks (path) {
     const sqlite = require('sqlite3').verbose();
     const db = new sqlite.Database(path);
     let sql = 'CREATE TABLE IF NOT EXISTS TaskTable(\
       idTaskTable INTEGER PRIMARY KEY AUTOINCREMENT,\
       Title VARCHAR(250) NOT NULL,\
-      Done INTEGER NOT NULL DEFAULT 0)'
+      Done INTEGER NOT NULL DEFAULT 0,\
+      idList INTEGER NOT NULL,\
+      FOREIGN KEY (idList) REFERENCES List (idList))';
     db.run(sql, [], (err) => {
       if(err) console.log(err);
     })

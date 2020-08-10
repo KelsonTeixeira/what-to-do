@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const database = require('./src/database/query');
 
-const PATH = './src/database/.TaskDB.db';
+const PATH = './TaskDB.db';
 
 require('electron-reload')(__dirname);
 
@@ -21,14 +21,14 @@ function createWindow () {
   // code
 
   //init db
-
-  database.createTable(PATH);
+  database.createTableLists(PATH);
+  database.createTableTasks(PATH);
 
   // first load
 
   ipcMain.on('loaded', async () => {
-    let tasks = await database.selectTasks(PATH);
-    win.webContents.send('firstLoaded', tasks);
+    let list = await database.selectLists(PATH);
+    win.webContents.send('firstLoaded', list);
   })
 
   //add

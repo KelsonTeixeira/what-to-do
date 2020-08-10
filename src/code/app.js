@@ -1,7 +1,9 @@
 const electron = require('electron');
 const ipc = electron.ipcRenderer;
+var idList;
 
 const dom = {
+  List: document.querySelector('.display-lists'),
   App: document.querySelector('.app'),
   ToDo: document.querySelector('#todo'),
   Done: document.querySelector('#done'),
@@ -47,6 +49,16 @@ function listTasks(rows){
   })
 }
 
+function displayLists(lists){
+  dom.List.innerHTML = '';
+  lists.map(row => {
+    let btn = document.createElement('button');
+    btn.textContent = row.Title;
+    btn.setAttribute('onclick', `openList(${row.idList})`)
+    dom.List.appendChild(btn);
+  })
+}
+
 const done = (id) => {
   ipc.send('setDone', id);
   ipc.on('DoneChanged', (evt, rows) => {
@@ -77,11 +89,16 @@ const deleteTask = (id) => {
   })
 }
 
+const openList = (id) => {
+  console.log(id);
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   ipc.send('loaded', 'iniciou');
   ipc.on('firstLoaded', (evt, rows) => {
-    listTasks(rows);
+    console.log(rows);
+    displayLists(rows);
   })
 })
 

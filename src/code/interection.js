@@ -1,6 +1,6 @@
 const addClose = document.querySelector('#add-out');
 const addDiv = document.querySelector('#add-div');
-const openAddForm = document.querySelector('#open-add-form');
+const openAddForm = document.querySelector('#open-add-form'); 
 
 addClose.addEventListener('click', () => {
   addDiv.style.display = 'none';

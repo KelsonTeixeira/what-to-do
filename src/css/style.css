@@ -38,6 +38,21 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
+.lists{
+  height: 100%;
+  width: 100%;
+  padding: 40px;
+  background-color: #191622;
+}
+
+.lists h1{
+  font-size: 30px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  text-align: left;
+  height: 10%;
+}
+
 .app{
   height: 100%;
   width: 100%;
@@ -46,6 +61,7 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 50px;
+  display: none;
 }
 
 .app img{
